@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Ephesus - Minimalist Jekyll Theme</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2021-10-12T15:59:10+03:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Rajashekar Chintalapati</name>
+   <email>rajshekar.ch@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Steps to create decentralized website</title>
+   <link href="http://localhost:4000/decentralized-web/"/>
+   <updated>2021-10-12T03:00:00+03:00</updated>
+   <id>http://localhost:4000/steps-to-create-decentralized-website</id>
+   <content type="html">&lt;p&gt;In this blog, we will discuss on how to create decentralized website/blog like &lt;a href=&quot;https://rajashekar.org&quot;&gt;this&lt;/a&gt; one using below steps. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;generating-content-id-cid&quot;&gt;Generating Content ID (CID)&lt;/h1&gt;
+&lt;p&gt;First you need to create ipfs CID (content id) by using IPFS &lt;a href=&quot;https://ipfs.io/&quot;&gt;InterPlanetary File System&lt;/a&gt; is a peer-to-peer network protocol for storing and sharing data in a distributed file system, with addresses based on content, not location. &lt;br /&gt;&lt;br /&gt;
+There are 2 ways to do it, either &lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#through-running-your-own-ipfs-node&quot;&gt;Through running your own ipfs node&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#uploading-folder-to-pinata-cloud&quot;&gt;Uploading folder to Pinata cloud&lt;/a&gt; (easy way)
+    &lt;h2 id=&quot;through-running-your-own-ipfs-node&quot;&gt;Through running your own ipfs node&lt;/h2&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install ipfs &lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;For mac - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew install ipfs&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;For Ubuntu Linux - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;snap install ipfs&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Initialize ipfs - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipfs init&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Run ipfs daemon - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipfs daemon&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Go to http://localhost:5001  &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;At this point you can upload your file/folder that contains index.html of your site/blog &lt;br /&gt;&lt;br /&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: You can use website generators like &lt;a href=&quot;https://getnikola.com/&quot;&gt;Nikola&lt;/a&gt; or &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; or &lt;a href=&quot;https://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;. For Complete list of site generators you can check &lt;a href=&quot;https://jamstack.org/generators/&quot;&gt;jamstack.org&lt;/a&gt;&lt;br /&gt;
+This blog was built using Nikola &lt;br /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To upload go to http://localhost:5001 and click on files and click on import and choose file or folder that has index.html &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/ipfs-folder-upload.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Once uploaded and pined, ipfs CID will be created. &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/ipfs-copy-cid.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt; &lt;br /&gt;&lt;br /&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: You need to keep your node running for CID to be accessible. &lt;br /&gt;
+You can use VPS (Virtual Private Server) from &lt;a href=&quot;https://www.digitalocean.com/&quot;&gt;Digital Ocean&lt;/a&gt; or &lt;a href=&quot;https://www.linode.com/&quot;&gt;Linode&lt;/a&gt; or &lt;a href=&quot;https://www.vultr.com/&quot;&gt;Vultr&lt;/a&gt; or &lt;a href=&quot;https://aws.amazon.com/lightsail/&quot;&gt;Amazon Light Sail&lt;/a&gt; or home server &lt;br /&gt; 
+to keep ipfs node running
+—&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;uploading-folder-to-pinata-cloud&quot;&gt;Uploading folder to Pinata cloud&lt;/h2&gt;
+&lt;p&gt;With this approach you dont need to install ipfs locally &lt;br /&gt;
+Create account in &lt;a href=&quot;https://pinata.cloud/&quot;&gt;Pinata Cloud&lt;/a&gt; and upload your file or folder that has index.html to pinata cloud and copy the CID, like below &lt;br /&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/pinata-upload.png&quot; width=&quot;50%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;accessing-content-through-cid&quot;&gt;Accessing Content through CID&lt;/h1&gt;
+&lt;p&gt;Now its time to access/share your content through CID &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;accessing-through-gateways&quot;&gt;Accessing through gateways&lt;/h2&gt;
+&lt;p&gt;You can share CID to anyone and they can access through below gateways &lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Through ipfs gateway - use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://ipfs.io/ipfs/&amp;lt;YOUR-CID&amp;gt;/&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Through cloudflare ipfs gateway - use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://cloudflare-ipfs.com/ipfs/&amp;lt;YOUR-CID&amp;gt;/&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;accessing-through-custom-domain&quot;&gt;Accessing through custom domain&lt;/h2&gt;
+&lt;p&gt;Above step is good, but you wont be remembering the CID will be difficult so how about accessing through custom domain &lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Buy a domain from &lt;a href=&quot;https://domains.google/&quot;&gt;Google domains&lt;/a&gt; or &lt;a href=&quot;https://www.namecheap.com/&quot;&gt;Namecheap&lt;/a&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Best way is to maintain domain using Cloudflare (it will give SSL for free for your domain). Create Cloudflare account and add your domain &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Go to dns tab &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/cloud-flare-dns-tab.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Add these records in DNS. &lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CNAME&lt;/code&gt; record for your domain &amp;amp; www and point that to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cloudflare-ipfs.com&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+      &lt;li&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TXT&lt;/code&gt; record with the name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_dnslink.your.website&lt;/code&gt; and value &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnslink=/ipfs/&amp;lt;YOUR_CID&amp;gt;&lt;/code&gt; &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/cloud-flare-ipfs.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt;&lt;br /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now you should be able to access your site through custom domain.&lt;/p&gt;
+
+&lt;h2 id=&quot;accessing-through-ens-domain&quot;&gt;Accessing through ENS domain&lt;/h2&gt;
+&lt;p&gt;If you want to go further to access your content through Ethereum blockchain you can use &lt;a href=&quot;https://docs.ens.domains/&quot;&gt;Ethereum Name Service (ENS)&lt;/a&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Register your name on &lt;a href=&quot;https://app.ens.domains/&quot;&gt;ENS Domains&lt;/a&gt;.
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: You need to have Ethereum Wallet to proceed further, you can use &lt;a href=&quot;https://metamask.io/&quot;&gt;Metamask&lt;/a&gt; Chrome plugin to purchase Ethereum. This will handle all the Ethereum transactions &lt;br /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Once you have Metamask installed in Chrome, you can follow the steps to register your name in ENS &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/ens-steps.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Once above step is done, you can add your ETH/BTC/LTC public address, so that this namespace can be used for crypto transactions. &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Here you can add your content &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipfs://&amp;lt;YOUR-CID&amp;gt;&lt;/code&gt;. This will create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://&amp;lt;NAME&amp;gt;.eth.link&lt;/code&gt;. You can use this link to access your content. &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/ens-content.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt;&lt;br /&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Note: Publishing this way is expensive since this requires to pay &lt;a href=&quot;https://www.investopedia.com/terms/g/gas-ethereum.asp&quot;&gt;gas price&lt;/a&gt; every time you modify your site. &lt;br /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Anyone with your .eth domain can access your content, currently there are few browsers like &lt;a href=&quot;https://brave.com/&quot;&gt;Brave&lt;/a&gt; or &lt;a href=&quot;https://www.opera.com/&quot;&gt;Opera&lt;/a&gt; can be used to access .eth domains. If you visit any .eth domain in Brave, you will be given below message to enable ENS. Might be in future other browsers will adopt ENS. 
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/brave-eth.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;deploying-content-in-multiple-nodes&quot;&gt;Deploying content in multiple nodes&lt;/h2&gt;
+&lt;p&gt;One of the advantage of using IPFS protocol is to avoid single point of failure, you can deploy the same content in multiple nodes. Now you have the CID, you can pin the same CID in multiple nodes &lt;br /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;If you have CID from pinata.cloud, you can pin the CID in another node by using command  - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipfs pin add &amp;lt;YOUR-CID&amp;gt;&lt;/code&gt;
+ &lt;br /&gt; or through UI &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/ipfs-cid-ui.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;If you have CID through your node, then you can upload to pinata.cloud, like below &lt;br /&gt;
+ &lt;br /&gt;&lt;img src=&quot;/assets/images/pinata-cid.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt; &lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;automate-publish&quot;&gt;Automate publish&lt;/h2&gt;
+&lt;p&gt;You can use &lt;a href=&quot;https://github.com/ipfs-shipyard/ipfs-deploy&quot;&gt;IPFS deploy&lt;/a&gt; to automate publishing to different IPFS clouds like &lt;a href=&quot;https://infura.io/&quot;&gt;Infura&lt;/a&gt;, &lt;a href=&quot;https://pinata.cloud/&quot;&gt;Pinata&lt;/a&gt;, &lt;a href=&quot;https://fission.codes/&quot;&gt;Fission&lt;/a&gt; and also set Cloudfare DNS settings.&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Done now you have your website/blog running using peer-to-peer network protocal IPFS. &lt;br /&gt;
+You can access this blog through &lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IPFS Cloudflare - &lt;a href=&quot;https://rajashekar.org/posts/steps-to-create-decentralized-website&quot;&gt;https://rajashekar.org/posts/steps-to-create-decentralized-website&lt;/a&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Ethereum blockchain - &lt;a href=&quot;https://rajashekar.eth.link/posts/steps-to-create-decentralized-website&quot;&gt;https://rajashekar.eth.link/posts/steps-to-create-decentralized-website&lt;/a&gt; &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hope this helps.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Ephesus The Great Ancient City</title>
+   <link href="http://localhost:4000/ephesus-the-great-ancient-city/"/>
+   <updated>2021-09-21T03:00:00+03:00</updated>
+   <id>http://localhost:4000/ephesus-the-great-ancient-city</id>
+   <content type="html">&lt;p&gt;Lorem markdownum feriam: vir, vulnere cum postquam ocius, ecce. Exsangui totiens
+generis &lt;a href=&quot;http://www.fertur.io/aeacidis&quot;&gt;Iuppiter&lt;/a&gt; dederunt cerva refoventque,
+mea nulla secessit modo et. Hospes &lt;strong&gt;felices stetimusque&lt;/strong&gt; erat: &lt;strong&gt;Niobe
+nostro&lt;/strong&gt;, ne ruris &lt;em&gt;in deas extrema&lt;/em&gt;. Thebaides crimina, tu dixerat eripiet
+quiescere animae, pervenientia fuit furta sacrata illam, dabat. Quod munera
+monstra rimas ultra cunctos.&lt;/p&gt;
+
+&lt;p&gt;Incipit pars telis quod colebat tenet Iovis, Perseus et non Hectoris caesae temperat tetigere pulvis? Phaethonteos avus Asopida mansit proelia quamquam furoris: fuit Haemum functa non ferarum vincat &lt;em&gt;pretium te gloria&lt;/em&gt; ignibus.&lt;/p&gt;
+
+&lt;h2 id=&quot;potum-maius-urbem&quot;&gt;Potum maius urbem&lt;/h2&gt;
+
+&lt;p&gt;Polydori arvis. Quoniam faciesque dona plus Iasone &lt;strong&gt;credas&lt;/strong&gt;: et novem recipit
+praeceps desint: teneat naribus. &lt;a href=&quot;http://fierent.net/miserrimasecreta&quot;&gt;Athamanas
+Cupido&lt;/a&gt;, ureret gradere adapertaque nacta
+spargere pater et &lt;a href=&quot;http://nocte-conclamat.org/indiciique-micant&quot;&gt;fata&lt;/a&gt; ferrove
+&lt;strong&gt;et&lt;/strong&gt; loqui essem Tegeaea varios leviter. Et nymphis in exhibita villo!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ephesus.jpg&quot; alt=&quot;Ephesus&quot; title=&quot;Ephesus&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sacra erat cuncta. Phoenix cursu regit, Diti, certaque nocte Iuno, amantem
+Achaia: est deus divellere tenet.&lt;/p&gt;
+
+&lt;h2 id=&quot;clara-poterant-caret&quot;&gt;Clara poterant caret&lt;/h2&gt;
+
+&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
+parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
+vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
+Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
+  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
+  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
+  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
+  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
+  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
+tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
+potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
+ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+
+&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
+Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
+solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
+elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
+carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
+
+&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
+parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
+vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
+Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
+  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
+  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
+  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
+  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
+  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
+tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
+potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
+ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+
+&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
+Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
+solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
+elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
+carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Elit in massa parturient a class condimentum suspendisse.</title>
+   <link href="http://localhost:4000/elit-in-massa-parturient-a-class-condimentum-suspendisse/"/>
+   <updated>2021-09-11T03:00:00+03:00</updated>
+   <id>http://localhost:4000/elit-in-massa-parturient-a-class-condimentum-suspendisse</id>
+   <content type="html">&lt;p&gt;Lorem markdownum feriam: vir, vulnere cum postquam ocius, ecce. Exsangui totiens
+generis &lt;a href=&quot;http://www.fertur.io/aeacidis&quot;&gt;Iuppiter&lt;/a&gt; dederunt cerva refoventque,
+mea nulla secessit modo et. Hospes &lt;strong&gt;felices stetimusque&lt;/strong&gt; erat: &lt;strong&gt;Niobe
+nostro&lt;/strong&gt;, ne ruris &lt;em&gt;in deas extrema&lt;/em&gt;. Thebaides crimina, tu dixerat eripiet
+quiescere animae, pervenientia fuit furta sacrata illam, dabat. Quod munera
+monstra rimas ultra cunctos.&lt;/p&gt;
+
+&lt;p&gt;Incipit pars telis quod colebat tenet Iovis, Perseus et non Hectoris caesae temperat tetigere pulvis? Phaethonteos avus Asopida mansit proelia quamquam furoris: fuit Haemum functa non ferarum vincat &lt;em&gt;pretium te gloria&lt;/em&gt; ignibus.&lt;/p&gt;
+
+&lt;h2 id=&quot;potum-maius-urbem&quot;&gt;Potum maius urbem&lt;/h2&gt;
+
+&lt;p&gt;Polydori arvis. Quoniam faciesque dona plus Iasone &lt;strong&gt;credas&lt;/strong&gt;: et novem recipit
+praeceps desint: teneat naribus. &lt;a href=&quot;http://fierent.net/miserrimasecreta&quot;&gt;Athamanas
+Cupido&lt;/a&gt;, ureret gradere adapertaque nacta
+spargere pater et &lt;a href=&quot;http://nocte-conclamat.org/indiciique-micant&quot;&gt;fata&lt;/a&gt; ferrove
+&lt;strong&gt;et&lt;/strong&gt; loqui essem Tegeaea varios leviter. Et nymphis in exhibita villo!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ephesus.jpg&quot; alt=&quot;Ephesus&quot; title=&quot;Ephesus&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sacra erat cuncta. Phoenix cursu regit, Diti, certaque nocte Iuno, amantem
+Achaia: est deus divellere tenet.&lt;/p&gt;
+
+&lt;h2 id=&quot;clara-poterant-caret&quot;&gt;Clara poterant caret&lt;/h2&gt;
+
+&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
+parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
+vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
+Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
+  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
+  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
+  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
+  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
+  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
+tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
+potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
+ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+
+&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
+Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
+solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
+elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
+carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
+
+&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
+parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
+vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
+Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
+  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
+  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
+  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
+  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
+  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
+tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
+potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
+ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+
+&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
+Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
+solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
+elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
+carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Email Address Format, PHP filter_var Function And RFC 5321</title>
+   <link href="http://localhost:4000/email-address-format-php-filter-var-function-and-rfc-5321/"/>
+   <updated>2021-08-27T03:00:00+03:00</updated>
+   <id>http://localhost:4000/email-address-format</id>
+   <content type="html">&lt;h1 id=&quot;proles-non-tamen-habet&quot;&gt;Proles non tamen habet&lt;/h1&gt;
+
+&lt;h2 id=&quot;epops-adfatur-admittitur-laedere&quot;&gt;Epops adfatur admittitur laedere&lt;/h2&gt;
+
+&lt;p&gt;Lorem markdownum Leucothoeque errore maturus bracchia, nova atria, non more
+hostem umbra metuque, turribus. Nostra prato &lt;strong&gt;vitae aevo Cycneia&lt;/strong&gt; undis; fuit
+ille, inque. Te nunc. Iamque ferens haut nec fruticosa quae summoque officio
+trunco faces. Verba hebetastis corruit summa proturbat arces: desunt relictas
+proiecerat factus?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Est erant labores submersum qui adspicias nectare&lt;/li&gt;
+  &lt;li&gt;Ratis insistere cucurri&lt;/li&gt;
+  &lt;li&gt;Deerit arces&lt;/li&gt;
+  &lt;li&gt;Mei mole iunctura recessit mater auctor silvasque&lt;/li&gt;
+  &lt;li&gt;Urbe effusus sunt praepetis&lt;/li&gt;
+  &lt;li&gt;Possunt narratur quoque qualia praecipue deos&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Silvae saxa colunt de saepe iubentem remotus sacra, tot acumina sorores, mihi!
+&lt;a href=&quot;#quo&quot;&gt;Oravit tolli&lt;/a&gt; mergit; &lt;strong&gt;inobservatus nitor niveis&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;h2 id=&quot;quinquennem-mihi-obliquaque-terrae-ab-miserere-cuspide&quot;&gt;Quinquennem mihi obliquaque terrae ab miserere cuspide&lt;/h2&gt;
+
+&lt;p&gt;Neque calidumque inguina sui aestuat gemino abstulit tendens tamen: versant
+dicentem tormenta tertius subigebant foedere. Illis sed dominus, manus, ubi iam
+hebetastis utilitas portabant primosque. O saevum &lt;em&gt;avi&lt;/em&gt; potest &lt;a href=&quot;#pretium&quot;&gt;sed
+nabat&lt;/a&gt; currere confodit &lt;em&gt;tollite his separat&lt;/em&gt;. Tenebrisque manus;
+opifex servitque iuvenem tamen?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fit figis praeterita viriles arbor&lt;/li&gt;
+  &lt;li&gt;Et petebar hi manus&lt;/li&gt;
+  &lt;li&gt;Humum maiorque caecisque conticuit erat naris coniecto&lt;/li&gt;
+  &lt;li&gt;Perque vagas et precanti potens inopes&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Fiant ait dixit pede Pindo laborum. Tamen et ex sacrum iacentes; nais aequor,
+amor pavent est! A cladis a &lt;strong&gt;tu ne lecti&lt;/strong&gt;, nec, iam secuti tibi. Frugiferas
+cacumen &lt;strong&gt;his&lt;/strong&gt;: tinxit lunam felix laborem cavernas inter.&lt;/p&gt;
+
+&lt;p&gt;Quae ima ictus: homine suo fores rediit caelo, &lt;a href=&quot;#exigit&quot;&gt;ad Iuno&lt;/a&gt;, diu inde
+nostro. Frondes caerula de iaculum pro nobilis unda. Ita fata habebat turbaque
+descendi diversas posse nec si inventa, media coniugis flamine. Misit et meus
+Cocalus!&lt;/p&gt;
+
+&lt;p&gt;Fiant ait dixit pede Pindo laborum. Tamen et ex sacrum iacentes; nais aequor,
+amor pavent est! A cladis a &lt;strong&gt;tu ne lecti&lt;/strong&gt;, nec, iam secuti tibi. Frugiferas
+cacumen &lt;strong&gt;his&lt;/strong&gt;: tinxit lunam felix laborem cavernas inter.&lt;/p&gt;
+
+&lt;p&gt;Quae ima ictus: homine suo fores rediit caelo, &lt;a href=&quot;#exigit&quot;&gt;ad Iuno&lt;/a&gt;, diu inde
+nostro. Frondes caerula de iaculum pro nobilis unda. Ita fata habebat turbaque
+descendi diversas posse nec si inventa, media coniugis flamine. Misit et meus
+Cocalus!
+Fiant ait dixit pede Pindo laborum. Tamen et ex sacrum iacentes; nais aequor,
+amor pavent est! A cladis a &lt;strong&gt;tu ne lecti&lt;/strong&gt;, nec, iam secuti tibi. Frugiferas
+cacumen &lt;strong&gt;his&lt;/strong&gt;: tinxit lunam felix laborem cavernas inter.&lt;/p&gt;
+
+&lt;p&gt;Quae ima ictus: homine suo fores rediit caelo, &lt;a href=&quot;#exigit&quot;&gt;ad Iuno&lt;/a&gt;, diu inde
+nostro. Frondes caerula de iaculum pro nobilis unda. Ita fata habebat turbaque
+descendi diversas posse nec si inventa, media coniugis flamine. Misit et meus
+Cocalus!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Binary Search Algorithm - C Programming Example</title>
+   <link href="http://localhost:4000/binary-search-algorithm-c-programming-example/"/>
+   <updated>2021-08-19T03:00:00+03:00</updated>
+   <id>http://localhost:4000/binary-search-algorithm-c-programming-example</id>
+   <content type="html">&lt;p&gt;Lorem markdownum feriam: vir, vulnere cum postquam ocius, ecce. Exsangui totiens
+generis &lt;a href=&quot;http://www.fertur.io/aeacidis&quot;&gt;Iuppiter&lt;/a&gt; dederunt cerva refoventque,
+mea nulla secessit modo et. Hospes &lt;strong&gt;felices stetimusque&lt;/strong&gt; erat: &lt;strong&gt;Niobe
+nostro&lt;/strong&gt;, ne ruris &lt;em&gt;in deas extrema&lt;/em&gt;. Thebaides crimina, tu dixerat eripiet
+quiescere animae, pervenientia fuit furta sacrata illam, dabat. Quod munera
+monstra rimas ultra cunctos.&lt;/p&gt;
+
+&lt;p&gt;Incipit pars telis quod colebat tenet Iovis, Perseus et non Hectoris caesae temperat tetigere pulvis? Phaethonteos avus Asopida mansit proelia quamquam furoris: fuit Haemum functa non ferarum vincat &lt;em&gt;pretium te gloria&lt;/em&gt; ignibus.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;   	  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Founded: %d &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Not Found!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;potum-maius-urbem&quot;&gt;Potum maius urbem&lt;/h2&gt;
+
+&lt;p&gt;Polydori arvis. Quoniam faciesque dona plus Iasone &lt;strong&gt;credas&lt;/strong&gt;: et novem recipit
+praeceps desint: teneat naribus. &lt;a href=&quot;http://fierent.net/miserrimasecreta&quot;&gt;Athamanas
+Cupido&lt;/a&gt;, ureret gradere adapertaque nacta
+spargere pater et &lt;a href=&quot;http://nocte-conclamat.org/indiciique-micant&quot;&gt;fata&lt;/a&gt; ferrove
+&lt;strong&gt;et&lt;/strong&gt; loqui essem Tegeaea varios leviter. Et nymphis in exhibita villo!&lt;/p&gt;
+
+&lt;p&gt;Sacra erat cuncta. Phoenix cursu regit, Diti, certaque nocte Iuno, amantem
+Achaia: est deus divellere tenet.&lt;/p&gt;
+
+&lt;h2 id=&quot;clara-poterant-caret&quot;&gt;Clara poterant caret&lt;/h2&gt;
+
+&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
+parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
+vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
+Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
+  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
+  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
+  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
+  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
+  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
+tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
+potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
+ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
+
+&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
+Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
+solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
+elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
+carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
