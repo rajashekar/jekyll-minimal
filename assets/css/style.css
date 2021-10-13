@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Catamaran:400,500,600,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@200&family=Open+Sans:wght@300&display=swap');
 :root {
     --bg-color: #fafafa;
     --bg-hover-color: #ececec;
     --body-bg: #fff;
     --primary-font-color: #000;
     --border-color: #dadada;
-    --code-color-plain: lightgray;
+    --code-color-plain: #f7f5f5;
+    --blockquote-color: #f1f0f0;
 }
 
 [data-theme="dark"] {
@@ -14,7 +15,8 @@
   --body-bg: #10171e;
   --primary-font-color: #bfbfbf;
   --border-color: #6a6a6a;
-  --code-color-plain: #505458;
+  --code-color-plain: #383838;
+  --blockquote-color: #343333;
 }
 
 body{
@@ -207,4 +209,14 @@ pre{font-size: 14px; max-width: 90vw; overflow: auto;}
     border-radius: 6px;
     margin: 0;
     padding: .2em .4em;
+}
+
+blockquote {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  background: var(--blockquote-color);
+  padding: 0.2em 1.4em;
 }
