@@ -1,16 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Ephesus - Minimalist Jekyll Theme</title>
+ <title>Rajashekar Chintalapati - Software Engineer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-10-12T16:43:54-07:00</updated>
+ <updated>2021-10-13T13:45:24-07:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Rajashekar Chintalapati</name>
    <email>rajshekar.ch@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Multiple subdomains using cloudflare</title>
+   <link href="http://localhost:4000/subdomains/"/>
+   <updated>2021-10-12T17:00:00-07:00</updated>
+   <id>http://localhost:4000/multiple-subdomains-using-cloudflare</id>
+   <content type="html">&lt;p&gt;You can create multiple domains in cloudflare using below approach.&lt;/p&gt;
+
+&lt;h1 id=&quot;ipfs--cloudflare&quot;&gt;IPFS + Cloudflare&lt;/h1&gt;
+&lt;p&gt;You can follow the steps in &lt;a href=&quot;/decentralized-web/&quot;&gt;here&lt;/a&gt; to create website using IPFS. If you want to create multiple subdomains then you can do like below.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to customize tmux</title>
+   <link href="http://localhost:4000/customize-tmux/"/>
+   <updated>2021-10-12T17:00:00-07:00</updated>
+   <id>http://localhost:4000/how-to-customize-tmux</id>
+   <content type="html">&lt;p&gt;With Tmux you can manage multiple sessions/terms &amp;amp; navigate quickly.&lt;/p&gt;
+
+&lt;h2 id=&quot;customizing-tmux&quot;&gt;Customizing Tmux&lt;/h2&gt;
+&lt;p&gt;Below is how you can customize tmux.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.tmux.conf&lt;/code&gt; if it does not exist.&lt;/li&gt;
+  &lt;li&gt;Enable 256 colors.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# tmux display things in 256 colors&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; default-terminal &lt;span class=&quot;s2&quot;&gt;&quot;screen-256color&quot;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#  enable terminal compability&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-ga&lt;/span&gt; terminal-overrides &lt;span class=&quot;s2&quot;&gt;&quot;,tmux-256color-italic:Tc&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Changing default prefix from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+b&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a&lt;/code&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# unbind default prefix and set it to Ctrl+a&lt;/span&gt;
+  unbind C-b
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; prefix C-a
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;C-a send-prefix
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add shortcut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a r&lt;/code&gt; to apply tmux configuration while inside tmux session
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# reload config file&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;r source-file ~/.tmux.conf &lt;span class=&quot;se&quot;&gt;\;&lt;/span&gt; display &lt;span class=&quot;s2&quot;&gt;&quot;Config Reloaded!&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add shortcut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a |&lt;/code&gt; for vertical split, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a -&lt;/code&gt; for horizontal split
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; | split-window &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#{pane_current_path}&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; - split-window &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#{pane_current_path}&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add shortcut &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a y&lt;/code&gt; to synchronize panes (meaning, if you have 2 or more panes in same window, you can send command to all panes at once)
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# synchronize all panes in a window&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;y setw synchronize-panes
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To move between panes - left (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a h&lt;/code&gt;) , down (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a j&lt;/code&gt;), up (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a k&lt;/code&gt;), right (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a l&lt;/code&gt;).
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# pane movement shortcuts&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;h &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-pane&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;j &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-pane&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;k &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-pane&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-U&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;l &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-pane&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To move between windows - left (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a Ctrl+h&lt;/code&gt;), right (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a Ctrl+l&lt;/code&gt;)
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; C-h &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-window&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; :-
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; C-l &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-window&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; :+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Enable mouse and vi mode
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# enable mouse support for switching panes/windows&lt;/span&gt;
+  setw &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; mouse on
+  &lt;span class=&quot;c&quot;&gt;# set vi mode for copy mode&lt;/span&gt;
+  setw &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; mode-keys vi
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Copy &amp;amp; paste in vi mode and attach OS clipboard.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# more settings to make copy-mode more vim-like&lt;/span&gt;
+  unbind &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;Escape copy-mode
+  unbind p
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;p paste-buffer
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Tcopy-mode-vi&lt;/span&gt; v send &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; begin-selection
+
+  &lt;span class=&quot;c&quot;&gt;# Buffers to/from Mac clipboard, yay tmux book from pragprog&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# Copy-paste integration&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; default-command &lt;span class=&quot;s2&quot;&gt;&quot;reattach-to-user-namespace -l zsh&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Tcopy-mode-vi&lt;/span&gt; y send &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; copy-pipe &lt;span class=&quot;s2&quot;&gt;&quot;reattach-to-user-namespace pbcopy&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# Update default binding of `Enter` to also use copy-pipe&lt;/span&gt;
+  unbind &lt;span class=&quot;nt&quot;&gt;-Tcopy-mode-vi&lt;/span&gt; Enter
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Tcopy-mode-vi&lt;/span&gt; Enter send &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt; copy-pipe &lt;span class=&quot;s2&quot;&gt;&quot;reattach-to-user-namespace pbcopy&quot;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# Bind &apos;]&apos; to use pbpaste&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; run &lt;span class=&quot;s2&quot;&gt;&quot;reattach-to-user-namespace pbpaste | tmux load-buffer - &amp;amp;&amp;amp; tmux paste-buffer&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: On MacOS, you need to install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew install reattach-to-user-namespace&lt;/code&gt;. For unix/windows use another program to handle this&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To quickly jump between panes - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a a&lt;/code&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# to show all panes&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;bind &lt;/span&gt;a choose-tree
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: by default, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+a w&lt;/code&gt; shows all windows in all sessions, but you need to go to each window to expand window. With above you will get all panes expanded.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;You can customize theme like below, create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.dotfiles/tmux/theme.sh&lt;/code&gt; and add below
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;#### COLOUR&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;tm_icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;🙈 🙉 🙊&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;tm_color_active&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colour51
+  &lt;span class=&quot;nv&quot;&gt;tm_color_inactive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colour241
+  &lt;span class=&quot;nv&quot;&gt;tm_color_feature&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colour198
+  &lt;span class=&quot;nv&quot;&gt;tm_color_music&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colour41
+  &lt;span class=&quot;nv&quot;&gt;tm_active_border_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colour51
+
+  &lt;span class=&quot;c&quot;&gt;# separators&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;tm_separator_left_bold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;◀&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;tm_separator_left_thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;❮&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;tm_separator_right_bold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;▶&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;tm_separator_right_thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;❯&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; status-left-length 32
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; status-right-length 150
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; status-interval 5
+
+  &lt;span class=&quot;c&quot;&gt;# default statusbar colors&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# set-option -g status-bg colour0&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; status-style &lt;span class=&quot;nb&quot;&gt;fg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_color_active&lt;/span&gt;,bg&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;default
+  &lt;span class=&quot;c&quot;&gt;#set-option -g status-attr default&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# default window title colors&lt;/span&gt;
+  set-window-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; window-status-style &lt;span class=&quot;nb&quot;&gt;fg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_color_inactive&lt;/span&gt;,bg&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;default
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; window-status-format &lt;span class=&quot;s2&quot;&gt;&quot;#I #W&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# active window title colors&lt;/span&gt;
+  set-window-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; window-status-current-style &lt;span class=&quot;nb&quot;&gt;fg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_color_active&lt;/span&gt;,bg&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;default
+  set-window-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt;  window-status-current-format &lt;span class=&quot;s2&quot;&gt;&quot;#[bold]#I #W&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# pane border&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; pane-border-style &lt;span class=&quot;nb&quot;&gt;fg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_color_inactive&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; pane-active-border-style &lt;span class=&quot;nb&quot;&gt;fg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_active_border_color&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# message text&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; message-style &lt;span class=&quot;nb&quot;&gt;fg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_color_active&lt;/span&gt;,bg&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;default
+
+  &lt;span class=&quot;c&quot;&gt;# pane number display&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; display-panes-active-colour &lt;span class=&quot;nv&quot;&gt;$tm_color_active&lt;/span&gt;
+  set-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; display-panes-colour &lt;span class=&quot;nv&quot;&gt;$tm_color_inactive&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# clock&lt;/span&gt;
+  set-window-option &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; clock-mode-colour &lt;span class=&quot;nv&quot;&gt;$tm_color_active&lt;/span&gt;
+
+  &lt;span class=&quot;nv&quot;&gt;tm_session_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;#[fg=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_color_feature&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,bold]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$tm_icon&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; #S&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; status-left &lt;span class=&quot;nv&quot;&gt;$tm_session_name&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos; &apos;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;You can use &lt;a href=&quot;https://github.com/tmux-plugins/tpm&quot;&gt;Tmux Plugin Manager&lt;/a&gt; to install tmux plugins, below are some interesting plugins.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  &lt;span class=&quot;c&quot;&gt;# List of plugins&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tpm&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-sensible&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-sessionist&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-copycat&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-prefix-highlight&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;christoomey/vim-tmux-navigator&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-open&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-resurrect&apos;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; @plugin &lt;span class=&quot;s1&quot;&gt;&apos;tmux-plugins/tmux-continuum&apos;&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; status-right &lt;span class=&quot;s2&quot;&gt;&quot;#{prefix_highlight}&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)&lt;/span&gt;
+  run &lt;span class=&quot;s1&quot;&gt;&apos;~/.tmux/plugins/tpm/tpm&apos;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;navigating-tmux&quot;&gt;Navigating Tmux&lt;/h2&gt;
+&lt;h3 id=&quot;terminal-to-tmux&quot;&gt;Terminal to tmux.&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;To create new session &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tmux new -s sesson-name&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;To kill session &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tmux kill-ses -t session-name&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;To re-attach to previous session &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tmux a&lt;/code&gt;. To specific session &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tmux a -t session-name&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;To list all tmux sessions - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tmux ls&lt;/code&gt;
+    &lt;h3 id=&quot;inside-tmux&quot;&gt;Inside Tmux&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Show all shortcuts &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ?&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Copy Mode &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ESC&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Command Mode &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a :&lt;/code&gt;
+    &lt;h4 id=&quot;sessions&quot;&gt;Sessions&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:new -s newsession&lt;/code&gt; to create new session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a )&lt;/code&gt; go to next session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a (&lt;/code&gt; go to previous session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a s&lt;/code&gt; show all sessions&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a $&lt;/code&gt; rename session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a d&lt;/code&gt; exit tmux session go back to terminal
+    &lt;h4 id=&quot;windows&quot;&gt;Windows&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a c&lt;/code&gt; create new window&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ,&lt;/code&gt; rename window&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a &amp;amp;&lt;/code&gt; kill window&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ctrl + w&lt;/code&gt; display all sessions and windows&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ctrl + l&lt;/code&gt; move to next window in current session&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ctrl + h&lt;/code&gt; move to previous window in current session
+    &lt;h4 id=&quot;panes&quot;&gt;Panes&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a |&lt;/code&gt; create vertical pane&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a -&lt;/code&gt; create horizontal pane&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a x&lt;/code&gt; kill pane&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a space&lt;/code&gt; re-arrange panes&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a ;&lt;/code&gt; toggle between panes&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a o&lt;/code&gt; move to next pane&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a l&lt;/code&gt; - move right, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a h&lt;/code&gt; - move left&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a j&lt;/code&gt; move up, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a&lt;/code&gt; k move down&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a z&lt;/code&gt; zoom to pane (toggle)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a !&lt;/code&gt; convert pane to window&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a f&lt;/code&gt; search all panes for given text
+    &lt;h4 id=&quot;buffers&quot;&gt;Buffers&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a #&lt;/code&gt; list buffers&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ctrl + a =&lt;/code&gt; list buffers to copy&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt; to search in buffers&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;: capture-pane&lt;/code&gt; capture visibile details in buffer&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:save-buffer&lt;/code&gt; buf.txt to save&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Steps to create decentralized website</title>
@@ -39,8 +288,8 @@ There are 2 ways to do it, either &lt;br /&gt;&lt;/p&gt;
   &lt;li&gt;Go to http://localhost:5001  &lt;br /&gt;&lt;/li&gt;
   &lt;li&gt;At this point you can upload your file/folder that contains index.html of your site/blog &lt;br /&gt;&lt;br /&gt;
     &lt;blockquote&gt;
-      &lt;p&gt;Note: You can use website generators like &lt;a href=&quot;https://getnikola.com/&quot;&gt;Nikola&lt;/a&gt; or &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; or &lt;a href=&quot;https://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;. For Complete list of site generators you can check &lt;a href=&quot;https://jamstack.org/generators/&quot;&gt;jamstack.org&lt;/a&gt;&lt;br /&gt;
-This blog was built using Nikola &lt;br /&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You can use website generators like &lt;a href=&quot;https://getnikola.com/&quot;&gt;Nikola&lt;/a&gt; or &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; or &lt;a href=&quot;https://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;. For Complete list of site generators you can check &lt;a href=&quot;https://jamstack.org/generators/&quot;&gt;jamstack.org&lt;/a&gt;&lt;br /&gt;
+This blog was built using Jekyll &lt;br /&gt;&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
   &lt;li&gt;To upload go to http://localhost:5001 and click on files and click on import and choose file or folder that has index.html &lt;br /&gt;
@@ -48,7 +297,7 @@ This blog was built using Nikola &lt;br /&gt;&lt;/p&gt;
   &lt;li&gt;Once uploaded and pined, ipfs CID will be created. &lt;br /&gt;
  &lt;br /&gt;&lt;img src=&quot;/assets/images/ipfs-copy-cid.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt; &lt;br /&gt;&lt;br /&gt;
     &lt;blockquote&gt;
-      &lt;p&gt;Note: You need to keep your node running for CID to be accessible. &lt;br /&gt;
+      &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You need to keep your node running for CID to be accessible. &lt;br /&gt;
 You can use VPS (Virtual Private Server) from &lt;a href=&quot;https://www.digitalocean.com/&quot;&gt;Digital Ocean&lt;/a&gt; or &lt;a href=&quot;https://www.linode.com/&quot;&gt;Linode&lt;/a&gt; or &lt;a href=&quot;https://www.vultr.com/&quot;&gt;Vultr&lt;/a&gt; or &lt;a href=&quot;https://aws.amazon.com/lightsail/&quot;&gt;Amazon Light Sail&lt;/a&gt; or home server &lt;br /&gt; 
 to keep ipfs node running
 —&lt;/p&gt;
@@ -99,7 +348,7 @@ Create account in &lt;a href=&quot;https://pinata.cloud/&quot;&gt;Pinata Cloud&l
 &lt;ol&gt;
   &lt;li&gt;Register your name on &lt;a href=&quot;https://app.ens.domains/&quot;&gt;ENS Domains&lt;/a&gt;.
     &lt;blockquote&gt;
-      &lt;p&gt;Note: You need to have Ethereum Wallet to proceed further, you can use &lt;a href=&quot;https://metamask.io/&quot;&gt;Metamask&lt;/a&gt; Chrome plugin to purchase Ethereum. This will handle all the Ethereum transactions &lt;br /&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: You need to have Ethereum Wallet to proceed further, you can use &lt;a href=&quot;https://metamask.io/&quot;&gt;Metamask&lt;/a&gt; Chrome plugin to purchase Ethereum. This will handle all the Ethereum transactions &lt;br /&gt;&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
   &lt;li&gt;Once you have Metamask installed in Chrome, you can follow the steps to register your name in ENS &lt;br /&gt;
@@ -108,7 +357,7 @@ Create account in &lt;a href=&quot;https://pinata.cloud/&quot;&gt;Pinata Cloud&l
   &lt;li&gt;Here you can add your content &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ipfs://&amp;lt;YOUR-CID&amp;gt;&lt;/code&gt;. This will create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://&amp;lt;NAME&amp;gt;.eth.link&lt;/code&gt;. You can use this link to access your content. &lt;br /&gt;
  &lt;br /&gt;&lt;img src=&quot;/assets/images/ens-content.png&quot; width=&quot;70%&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; /&gt;&lt;br /&gt;
     &lt;blockquote&gt;
-      &lt;p&gt;Note: Publishing this way is expensive since this requires to pay &lt;a href=&quot;https://www.investopedia.com/terms/g/gas-ethereum.asp&quot;&gt;gas price&lt;/a&gt; every time you modify your site. &lt;br /&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Publishing this way is expensive since this requires to pay &lt;a href=&quot;https://www.investopedia.com/terms/g/gas-ethereum.asp&quot;&gt;gas price&lt;/a&gt; every time you modify your site. &lt;br /&gt;&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
   &lt;li&gt;Anyone with your .eth domain can access your content, currently there are few browsers like &lt;a href=&quot;https://brave.com/&quot;&gt;Brave&lt;/a&gt; or &lt;a href=&quot;https://www.opera.com/&quot;&gt;Opera&lt;/a&gt; can be used to access .eth domains. If you visit any .eth domain in Brave, you will be given below message to enable ENS. Might be in future other browsers will adopt ENS. 
@@ -143,87 +392,6 @@ You can access this blog through &lt;br /&gt;&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Hope this helps.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ephesus The Great Ancient City</title>
-   <link href="http://localhost:4000/ephesus-the-great-ancient-city/"/>
-   <updated>2021-09-20T17:00:00-07:00</updated>
-   <id>http://localhost:4000/ephesus-the-great-ancient-city</id>
-   <content type="html">&lt;p&gt;Lorem markdownum feriam: vir, vulnere cum postquam ocius, ecce. Exsangui totiens
-generis &lt;a href=&quot;http://www.fertur.io/aeacidis&quot;&gt;Iuppiter&lt;/a&gt; dederunt cerva refoventque,
-mea nulla secessit modo et. Hospes &lt;strong&gt;felices stetimusque&lt;/strong&gt; erat: &lt;strong&gt;Niobe
-nostro&lt;/strong&gt;, ne ruris &lt;em&gt;in deas extrema&lt;/em&gt;. Thebaides crimina, tu dixerat eripiet
-quiescere animae, pervenientia fuit furta sacrata illam, dabat. Quod munera
-monstra rimas ultra cunctos.&lt;/p&gt;
-
-&lt;p&gt;Incipit pars telis quod colebat tenet Iovis, Perseus et non Hectoris caesae temperat tetigere pulvis? Phaethonteos avus Asopida mansit proelia quamquam furoris: fuit Haemum functa non ferarum vincat &lt;em&gt;pretium te gloria&lt;/em&gt; ignibus.&lt;/p&gt;
-
-&lt;h2 id=&quot;potum-maius-urbem&quot;&gt;Potum maius urbem&lt;/h2&gt;
-
-&lt;p&gt;Polydori arvis. Quoniam faciesque dona plus Iasone &lt;strong&gt;credas&lt;/strong&gt;: et novem recipit
-praeceps desint: teneat naribus. &lt;a href=&quot;http://fierent.net/miserrimasecreta&quot;&gt;Athamanas
-Cupido&lt;/a&gt;, ureret gradere adapertaque nacta
-spargere pater et &lt;a href=&quot;http://nocte-conclamat.org/indiciique-micant&quot;&gt;fata&lt;/a&gt; ferrove
-&lt;strong&gt;et&lt;/strong&gt; loqui essem Tegeaea varios leviter. Et nymphis in exhibita villo!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ephesus.jpg&quot; alt=&quot;Ephesus&quot; title=&quot;Ephesus&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sacra erat cuncta. Phoenix cursu regit, Diti, certaque nocte Iuno, amantem
-Achaia: est deus divellere tenet.&lt;/p&gt;
-
-&lt;h2 id=&quot;clara-poterant-caret&quot;&gt;Clara poterant caret&lt;/h2&gt;
-
-&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
-parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
-vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
-Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
-  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
-  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
-  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
-  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
-  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
-tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
-potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
-ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
-
-&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
-Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
-solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
-elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
-carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
-
-&lt;p&gt;Iungimus solis, est Inachides haut orbataque sedebat, tamen Crathis crinita
-parentem. Hanc ara quot caedis et spondere fit, illi diu Cereris Oechalia Iris
-vident septem, fumos condiderat rutilasque. Tenent instrumenta nudaverat dicta.
-Et et curis: quod Arcades ipsa: vellet, altius non madidos numina in.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Marmor regina Ionium elisa data Talibus rogat&lt;/li&gt;
-  &lt;li&gt;Novi nosterque hac perque poenam exemplis&lt;/li&gt;
-  &lt;li&gt;Finemque nitidis alteriusque odiique aspicit Tartessia est&lt;/li&gt;
-  &lt;li&gt;Iuvenum nostri alipedi&lt;/li&gt;
-  &lt;li&gt;Quae remorata et arto silvestre fidae adhuc&lt;/li&gt;
-  &lt;li&gt;Cornua altus intrat os vocant regia&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Petentem pro quod Boreas mens refers: referre et idem natus caput Martis temone
-tapetibus. Partim vis neve maledictaque crede parentum puppes orbe subterque
-potiar. Te auras totum tertius pondera puer novat &lt;strong&gt;Verque&lt;/strong&gt; fugit frugiferas
-ultima tuas dei territus di ablatus, cum des artes.&lt;/p&gt;
-
-&lt;p&gt;Socium est facti est enim neve patris facto Laertaque formam. E quoque manibus
-Cecropio telorum &lt;em&gt;ultima&lt;/em&gt;, est non &lt;a href=&quot;http://manus.io/est&quot;&gt;est&lt;/a&gt;, sim desiluit
-solida; fecit. Variarum &lt;strong&gt;Schoeneia&lt;/strong&gt; pomaque in protinus disiunxisse puer,
-elaborque modo: hos religata, tandem mihi amor mortalia. Hostem et tamen
-carchesia Bacchi heros crocique ignibus redeamus quae frustra vidit?&lt;/p&gt;
 </content>
  </entry>
  

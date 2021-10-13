@@ -1,0 +1,6 @@
+I"ï<p>With Tmux you can manage multiple sessions/terms &amp; navigate quickly.
+Below is how you can customize tmux.</p>
+<ul>
+  <li>Create <code class="language-plaintext highlighter-rouge">~/.tmux.conf</code> if it does not exist.</li>
+</ul>
+:ET

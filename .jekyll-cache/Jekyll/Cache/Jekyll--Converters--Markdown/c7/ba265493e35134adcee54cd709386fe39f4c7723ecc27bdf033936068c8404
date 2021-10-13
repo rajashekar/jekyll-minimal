@@ -1,0 +1,13 @@
+I"þ<p>With Tmux you can manage multiple sessions/terms &amp; navigate quickly.
+Below is how you can customize tmux.</p>
+<ul>
+  <li>Create <code class="language-plaintext highlighter-rouge">~/.tmux.conf</code> if it does not exist.</li>
+  <li>Add below lines to enable 256 colors.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># tmux display things in 256 colors</span>
+  <span class="nb">set</span> <span class="nt">-g</span> default-terminal <span class="s2">"screen-256color"</span>
+  <span class="c">#  enable terminal compability</span>
+  set-option <span class="nt">-ga</span> terminal-overrides <span class="s2">",tmux-256color-italic:Tc"</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+:ET

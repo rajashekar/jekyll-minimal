@@ -1,0 +1,230 @@
+I"{B<p>With Tmux you can manage multiple sessions/terms &amp; navigate quickly.</p>
+
+<h2 id="customizing-tmux">Customizing Tmux</h2>
+<p>Below is how you can customize tmux.</p>
+<ul>
+  <li>Create <code class="language-plaintext highlighter-rouge">~/.tmux.conf</code> if it does not exist.</li>
+  <li>Enable 256 colors.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># tmux display things in 256 colors</span>
+  <span class="nb">set</span> <span class="nt">-g</span> default-terminal <span class="s2">"screen-256color"</span>
+  <span class="c">#  enable terminal compability</span>
+  set-option <span class="nt">-ga</span> terminal-overrides <span class="s2">",tmux-256color-italic:Tc"</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>Changing default prefix from <code class="language-plaintext highlighter-rouge">Ctrl+b</code> to <code class="language-plaintext highlighter-rouge">Ctrl+a</code>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># unbind default prefix and set it to Ctrl+a</span>
+  unbind C-b
+  <span class="nb">set</span> <span class="nt">-g</span> prefix C-a
+  <span class="nb">bind </span>C-a send-prefix
+
+</code></pre></div>    </div>
+  </li>
+  <li>Add shortcut <code class="language-plaintext highlighter-rouge">Ctrl+a r</code> to apply tmux configuration while inside tmux session
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># reload config file</span>
+  <span class="nb">bind </span>r source-file ~/.tmux.conf <span class="se">\;</span> display <span class="s2">"Config Reloaded!"</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>Add shortcut <code class="language-plaintext highlighter-rouge">Ctrl+a |</code> for vertical split, <code class="language-plaintext highlighter-rouge">Ctrl+a -</code> for horizontal split
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="nb">bind</span> | split-window <span class="nt">-h</span> <span class="nt">-c</span> <span class="s2">"#{pane_current_path}"</span>
+  <span class="nb">bind</span> - split-window <span class="nt">-v</span> <span class="nt">-c</span> <span class="s2">"#{pane_current_path}"</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>Add shortcut <code class="language-plaintext highlighter-rouge">Ctrl+a y</code> to synchronize panes (meaning, if you have 2 or more panes in same window, you can send command to all panes at once)
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># synchronize all panes in a window</span>
+  <span class="nb">bind </span>y setw synchronize-panes
+
+</code></pre></div>    </div>
+  </li>
+  <li>To move between panes - left (<code class="language-plaintext highlighter-rouge">Ctrl+a h</code>) , down (<code class="language-plaintext highlighter-rouge">Ctrl+a j</code>), up (<code class="language-plaintext highlighter-rouge">Ctrl+a k</code>), right (<code class="language-plaintext highlighter-rouge">Ctrl+a l</code>).
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># pane movement shortcuts</span>
+  <span class="nb">bind </span>h <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-L</span>
+  <span class="nb">bind </span>j <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-D</span>
+  <span class="nb">bind </span>k <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-U</span>
+  <span class="nb">bind </span>l <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-R</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>To move between windows - left (<code class="language-plaintext highlighter-rouge">Ctrl+a Ctrl+h</code>), right (<code class="language-plaintext highlighter-rouge">Ctrl+a Ctrl+l</code>)
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="nb">bind</span> <span class="nt">-r</span> C-h <span class="k">select</span><span class="nt">-window</span> <span class="nt">-t</span> :-
+  <span class="nb">bind</span> <span class="nt">-r</span> C-l <span class="k">select</span><span class="nt">-window</span> <span class="nt">-t</span> :+
+
+</code></pre></div>    </div>
+  </li>
+  <li>Enable mouse and vi mode
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># enable mouse support for switching panes/windows</span>
+  setw <span class="nt">-g</span> mouse on
+  <span class="c"># set vi mode for copy mode</span>
+  setw <span class="nt">-g</span> mode-keys vi
+
+</code></pre></div>    </div>
+  </li>
+  <li>Copy &amp; paste in vi mode and attach OS clipboard.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># more settings to make copy-mode more vim-like</span>
+  unbind <span class="o">[</span>
+  <span class="nb">bind </span>Escape copy-mode
+  unbind p
+  <span class="nb">bind </span>p paste-buffer
+  <span class="nb">bind</span> <span class="nt">-Tcopy-mode-vi</span> v send <span class="nt">-X</span> begin-selection
+
+  <span class="c"># Buffers to/from Mac clipboard, yay tmux book from pragprog</span>
+  <span class="c"># Copy-paste integration</span>
+  set-option <span class="nt">-g</span> default-command <span class="s2">"reattach-to-user-namespace -l zsh"</span>
+  <span class="nb">bind</span> <span class="nt">-Tcopy-mode-vi</span> y send <span class="nt">-X</span> copy-pipe <span class="s2">"reattach-to-user-namespace pbcopy"</span>
+
+  <span class="c"># Update default binding of `Enter` to also use copy-pipe</span>
+  unbind <span class="nt">-Tcopy-mode-vi</span> Enter
+  <span class="nb">bind</span> <span class="nt">-Tcopy-mode-vi</span> Enter send <span class="nt">-X</span> copy-pipe <span class="s2">"reattach-to-user-namespace pbcopy"</span>
+  <span class="c"># Bind ']' to use pbpaste</span>
+  <span class="nb">bind</span> <span class="o">]</span> run <span class="s2">"reattach-to-user-namespace pbpaste | tmux load-buffer - &amp;&amp; tmux paste-buffer"</span>
+
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Note</strong>: On MacOS, you need to install <code class="language-plaintext highlighter-rouge">brew install reattach-to-user-namespace</code>. For unix/windows use another program to handle this</p>
+    </blockquote>
+  </li>
+  <li>To quickly jump between panes - <code class="language-plaintext highlighter-rouge">Ctrl+a a</code>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># to show all panes</span>
+  <span class="nb">bind </span>a choose-tree
+
+</code></pre></div>    </div>
+    <blockquote>
+      <p><strong>Note</strong>: by default, <code class="language-plaintext highlighter-rouge">Ctrl+a w</code> shows all windows in all sessions, but you need to go to each window to expand window. With above you will get all panes expanded.</p>
+    </blockquote>
+  </li>
+  <li>You can customize theme like below, create <code class="language-plaintext highlighter-rouge">~/.dotfiles/tmux/theme.sh</code> and add below
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c">#### COLOUR</span>
+  <span class="nv">tm_icon</span><span class="o">=</span><span class="s2">"🙈 🙉 🙊"</span>
+  <span class="nv">tm_color_active</span><span class="o">=</span>colour51
+  <span class="nv">tm_color_inactive</span><span class="o">=</span>colour241
+  <span class="nv">tm_color_feature</span><span class="o">=</span>colour198
+  <span class="nv">tm_color_music</span><span class="o">=</span>colour41
+  <span class="nv">tm_active_border_color</span><span class="o">=</span>colour51
+
+  <span class="c"># separators</span>
+  <span class="nv">tm_separator_left_bold</span><span class="o">=</span><span class="s2">"◀"</span>
+  <span class="nv">tm_separator_left_thin</span><span class="o">=</span><span class="s2">"❮"</span>
+  <span class="nv">tm_separator_right_bold</span><span class="o">=</span><span class="s2">"▶"</span>
+  <span class="nv">tm_separator_right_thin</span><span class="o">=</span><span class="s2">"❯"</span>
+
+  <span class="nb">set</span> <span class="nt">-g</span> status-left-length 32
+  <span class="nb">set</span> <span class="nt">-g</span> status-right-length 150
+  <span class="nb">set</span> <span class="nt">-g</span> status-interval 5
+
+  <span class="c"># default statusbar colors</span>
+  <span class="c"># set-option -g status-bg colour0</span>
+  set-option <span class="nt">-g</span> status-style <span class="nb">fg</span><span class="o">=</span><span class="nv">$tm_color_active</span>,bg<span class="o">=</span>default
+  <span class="c">#set-option -g status-attr default</span>
+
+  <span class="c"># default window title colors</span>
+  set-window-option <span class="nt">-g</span> window-status-style <span class="nb">fg</span><span class="o">=</span><span class="nv">$tm_color_inactive</span>,bg<span class="o">=</span>default
+  <span class="nb">set</span> <span class="nt">-g</span> window-status-format <span class="s2">"#I #W"</span>
+
+  <span class="c"># active window title colors</span>
+  set-window-option <span class="nt">-g</span> window-status-current-style <span class="nb">fg</span><span class="o">=</span><span class="nv">$tm_color_active</span>,bg<span class="o">=</span>default
+  set-window-option <span class="nt">-g</span>  window-status-current-format <span class="s2">"#[bold]#I #W"</span>
+
+  <span class="c"># pane border</span>
+  set-option <span class="nt">-g</span> pane-border-style <span class="nb">fg</span><span class="o">=</span><span class="nv">$tm_color_inactive</span>
+  set-option <span class="nt">-g</span> pane-active-border-style <span class="nb">fg</span><span class="o">=</span><span class="nv">$tm_active_border_color</span>
+
+  <span class="c"># message text</span>
+  set-option <span class="nt">-g</span> message-style <span class="nb">fg</span><span class="o">=</span><span class="nv">$tm_color_active</span>,bg<span class="o">=</span>default
+
+  <span class="c"># pane number display</span>
+  set-option <span class="nt">-g</span> display-panes-active-colour <span class="nv">$tm_color_active</span>
+  set-option <span class="nt">-g</span> display-panes-colour <span class="nv">$tm_color_inactive</span>
+
+  <span class="c"># clock</span>
+  set-window-option <span class="nt">-g</span> clock-mode-colour <span class="nv">$tm_color_active</span>
+
+  <span class="nv">tm_session_name</span><span class="o">=</span><span class="s2">"#[fg=</span><span class="nv">$tm_color_feature</span><span class="s2">,bold]</span><span class="nv">$tm_icon</span><span class="s2"> #S"</span>
+  <span class="nb">set</span> <span class="nt">-g</span> status-left <span class="nv">$tm_session_name</span><span class="s1">' '</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>You can use <a href="https://github.com/tmux-plugins/tpm">Tmux Plugin Manager</a> to install tmux plugins, below are some interesting plugins.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># List of plugins</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tpm'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-sensible'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-sessionist'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-copycat'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-prefix-highlight'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'christoomey/vim-tmux-navigator'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-open'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-resurrect'</span>
+  <span class="nb">set</span> <span class="nt">-g</span> @plugin <span class="s1">'tmux-plugins/tmux-continuum'</span>
+
+  <span class="nb">set</span> <span class="nt">-g</span> status-right <span class="s2">"#{prefix_highlight}"</span>
+
+  <span class="c"># Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span>
+  run <span class="s1">'~/.tmux/plugins/tpm/tpm'</span>
+
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="navigating-tmux">Navigating Tmux</h2>
+<h3 id="terminal-to-tmux">Terminal to tmux.</h3>
+<ul>
+  <li>To create new session <code class="language-plaintext highlighter-rouge">tmux new -s sesson-name</code></li>
+  <li>To kill session <code class="language-plaintext highlighter-rouge">tmux kill-ses -t session-name</code></li>
+  <li>To re-attach to previous session <code class="language-plaintext highlighter-rouge">tmux a</code>. To specific session <code class="language-plaintext highlighter-rouge">tmux a -t session-name</code></li>
+  <li>To list all tmux sessions - <code class="language-plaintext highlighter-rouge">tmux ls</code>
+    <h3 id="inside-tmux">Inside Tmux</h3>
+  </li>
+  <li>Show all shortcuts <code class="language-plaintext highlighter-rouge">ctrl + a ?</code></li>
+  <li>Copy Mode <code class="language-plaintext highlighter-rouge">ctrl + a ESC</code></li>
+  <li>Command Mode <code class="language-plaintext highlighter-rouge">ctrl + a :</code>
+    <h4 id="sessions">Sessions</h4>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">:new -s newsession</code> to create new session</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a )</code> go to next session</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a (</code> go to previous session</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a s</code> show all sessions</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a $</code> rename session</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a d</code> exit tmux session go back to terminal
+    <h4 id="windows">Windows</h4>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a c</code> create new window</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a ,</code> rename window</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a &amp;</code> kill window</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a ctrl + w</code> display all sessions and windows</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a ctrl + l</code> move to next window in current session</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a ctrl + h</code> move to previous window in current session
+    <h4 id="panes">Panes</h4>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a |</code> create vertical pane</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a -</code> create horizontal pane</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a x</code> kill pane</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a space</code> re-arrange panes</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a ;</code> toggle between panes</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a o</code> move to next pane</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a l</code> - move right, <code class="language-plaintext highlighter-rouge">ctrl + a h</code> - move left</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a j</code> move up, <code class="language-plaintext highlighter-rouge">ctrl + a</code> k move down</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a z</code> zoom to pane (toggle)</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a !</code> convert pane to window</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a f</code> search all panes for given text
+    <h4 id="buffers">Buffers</h4>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a #</code> list buffers</li>
+  <li><code class="language-plaintext highlighter-rouge">ctrl + a =</code> list buffers to copy</li>
+  <li><code class="language-plaintext highlighter-rouge">/</code> to search in buffers</li>
+  <li><code class="language-plaintext highlighter-rouge">: capture-pane</code> capture visibile details in buffer</li>
+  <li><code class="language-plaintext highlighter-rouge">:save-buffer</code> buf.txt to save</li>
+</ul>
+:ET

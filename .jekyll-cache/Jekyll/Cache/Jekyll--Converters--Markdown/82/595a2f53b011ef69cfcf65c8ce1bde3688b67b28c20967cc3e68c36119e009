@@ -1,0 +1,96 @@
+I"ª<p>With Tmux you can manage multiple sessions/terms &amp; navigate quickly.
+Below is how you can customize tmux.</p>
+<ul>
+  <li>Create <code class="language-plaintext highlighter-rouge">~/.tmux.conf</code> if it does not exist.</li>
+  <li>Enable 256 colors.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># tmux display things in 256 colors</span>
+  <span class="nb">set</span> <span class="nt">-g</span> default-terminal <span class="s2">"screen-256color"</span>
+  <span class="c">#  enable terminal compability</span>
+  set-option <span class="nt">-ga</span> terminal-overrides <span class="s2">",tmux-256color-italic:Tc"</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>Changing default prefix from <code class="language-plaintext highlighter-rouge">Ctrl+b</code> to <code class="language-plaintext highlighter-rouge">Ctrl+a</code>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># unbind default prefix and set it to Ctrl+a</span>
+  unbind C-b
+  <span class="nb">set</span> <span class="nt">-g</span> prefix C-a
+  <span class="nb">bind </span>C-a send-prefix
+
+</code></pre></div>    </div>
+  </li>
+  <li>Add shortcut <code class="language-plaintext highlighter-rouge">Ctrl+a r</code> to apply tmux configuration while inside tmux session
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># reload config file</span>
+  <span class="nb">bind </span>r source-file ~/.tmux.conf <span class="se">\;</span> display <span class="s2">"Config Reloaded!"</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>Add shortcut <code class="language-plaintext highlighter-rouge">Ctrl+a |</code> for vertical split, <code class="language-plaintext highlighter-rouge">Ctrl+a -</code> for horizontal split
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="nb">bind</span> | split-window <span class="nt">-h</span> <span class="nt">-c</span> <span class="s2">"#{pane_current_path}"</span>
+  <span class="nb">bind</span> - split-window <span class="nt">-v</span> <span class="nt">-c</span> <span class="s2">"#{pane_current_path}"</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>Add shortcut <code class="language-plaintext highlighter-rouge">Ctrl+a y</code> to synchronize panes (meaning, if you have 2 or more panes in same window, you can send command to all panes at once)
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># synchronize all panes in a window</span>
+  <span class="nb">bind </span>y setw synchronize-panes
+
+</code></pre></div>    </div>
+  </li>
+  <li>To move between panes - left (<code class="language-plaintext highlighter-rouge">Ctrl+a h</code>) , down (<code class="language-plaintext highlighter-rouge">Ctrl+a j</code>), up (<code class="language-plaintext highlighter-rouge">Ctrl+a k</code>), right (<code class="language-plaintext highlighter-rouge">Ctrl+a l</code>).
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># pane movement shortcuts</span>
+  <span class="nb">bind </span>h <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-L</span>
+  <span class="nb">bind </span>j <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-D</span>
+  <span class="nb">bind </span>k <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-U</span>
+  <span class="nb">bind </span>l <span class="k">select</span><span class="nt">-pane</span> <span class="nt">-R</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>To move between windows - left (<code class="language-plaintext highlighter-rouge">Ctrl+a Ctrl+h</code>), right (<code class="language-plaintext highlighter-rouge">Ctrl+a Ctrl+l</code>)
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="nb">bind</span> <span class="nt">-r</span> C-h <span class="k">select</span><span class="nt">-window</span> <span class="nt">-t</span> :-
+  <span class="nb">bind</span> <span class="nt">-r</span> C-l <span class="k">select</span><span class="nt">-window</span> <span class="nt">-t</span> :+
+
+</code></pre></div>    </div>
+  </li>
+  <li>Enable mouse and vi mode
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># enable mouse support for switching panes/windows</span>
+  setw <span class="nt">-g</span> mouse on
+  <span class="c"># set vi mode for copy mode</span>
+  setw <span class="nt">-g</span> mode-keys vi
+
+</code></pre></div>    </div>
+  </li>
+  <li>Copy &amp; paste in vi mode and attach OS clipboard.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c"># more settings to make copy-mode more vim-like</span>
+  unbind <span class="o">[</span>
+  <span class="nb">bind </span>Escape copy-mode
+  unbind p
+  <span class="nb">bind </span>p paste-buffer
+  <span class="nb">bind</span> <span class="nt">-Tcopy-mode-vi</span> v send <span class="nt">-X</span> begin-selection
+
+  <span class="c"># Buffers to/from Mac clipboard, yay tmux book from pragprog</span>
+  <span class="c"># Copy-paste integration</span>
+  set-option <span class="nt">-g</span> default-command <span class="s2">"reattach-to-user-namespace -l zsh"</span>
+  <span class="nb">bind</span> <span class="nt">-Tcopy-mode-vi</span> y send <span class="nt">-X</span> copy-pipe <span class="s2">"reattach-to-user-namespace pbcopy"</span>
+
+  <span class="c"># Update default binding of `Enter` to also use copy-pipe</span>
+  unbind <span class="nt">-Tcopy-mode-vi</span> Enter
+  <span class="nb">bind</span> <span class="nt">-Tcopy-mode-vi</span> Enter send <span class="nt">-X</span> copy-pipe <span class="s2">"reattach-to-user-namespace pbcopy"</span>
+  <span class="c"># Bind ']' to use pbpaste</span>
+  <span class="nb">bind</span> <span class="o">]</span> run <span class="s2">"reattach-to-user-namespace pbpaste | tmux load-buffer - &amp;&amp; tmux paste-buffer"</span>
+
+</code></pre></div>    </div>
+    <blockquote>
+      <p>Note: On MacOS, you need to install <code class="language-plaintext highlighter-rouge">brew install reattach-to-user-namespace</code>. For unix/windows use another program to handle this</p>
+    </blockquote>
+  </li>
+</ul>
+:ET

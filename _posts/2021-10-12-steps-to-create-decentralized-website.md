@@ -24,13 +24,13 @@ There are 2 ways to do it, either <br>
 3. Run ipfs daemon - `ipfs daemon` <br>
 4. Go to http://localhost:5001  <br>
 5. At this point you can upload your file/folder that contains index.html of your site/blog <br><br>
-> Note: You can use website generators like [Nikola](https://getnikola.com/) or [Jekyll](https://jekyllrb.com/) or [Hugo](https://gohugo.io/). For Complete list of site generators you can check [jamstack.org](https://jamstack.org/generators/)<br>
-This blog was built using Nikola <br>
+> **Note**: You can use website generators like [Nikola](https://getnikola.com/) or [Jekyll](https://jekyllrb.com/) or [Hugo](https://gohugo.io/). For Complete list of site generators you can check [jamstack.org](https://jamstack.org/generators/)<br>
+This blog was built using Jekyll <br>
 6. To upload go to http://localhost:5001 and click on files and click on import and choose file or folder that has index.html <br>
     <br><img src="{{ site.baseurl }}/assets/images/ipfs-folder-upload.png" width="70%" style="display: block;margin-left: auto;margin-right: auto;"> <br>
 7. Once uploaded and pined, ipfs CID will be created. <br>
     <br><img src="{{ site.baseurl }}/assets/images/ipfs-copy-cid.png" width="70%" style="display: block;margin-left: auto;margin-right: auto;"> <br><br>
-> Note: You need to keep your node running for CID to be accessible. <br>
+> **Note**: You need to keep your node running for CID to be accessible. <br>
 You can use VPS (Virtual Private Server) from [Digital Ocean](https://www.digitalocean.com/) or [Linode](https://www.linode.com/) or [Vultr](https://www.vultr.com/) or [Amazon Light Sail](https://aws.amazon.com/lightsail/) or home server <br> 
 to keep ipfs node running
 ---
@@ -69,14 +69,14 @@ Now you should be able to access your site through custom domain.
 If you want to go further to access your content through Ethereum blockchain you can use [Ethereum Name Service (ENS)](https://docs.ens.domains/) <br>
 
 1. Register your name on [ENS Domains](https://app.ens.domains/).
-> Note: You need to have Ethereum Wallet to proceed further, you can use [Metamask](https://metamask.io/) Chrome plugin to purchase Ethereum. This will handle all the Ethereum transactions <br>
+> **Note**: You need to have Ethereum Wallet to proceed further, you can use [Metamask](https://metamask.io/) Chrome plugin to purchase Ethereum. This will handle all the Ethereum transactions <br>
 
 2. Once you have Metamask installed in Chrome, you can follow the steps to register your name in ENS <br>
     <br><img src="{{ site.baseurl }}/assets/images/ens-steps.png" width="70%" style="display: block;margin-left: auto;margin-right: auto;"> <br>
 3. Once above step is done, you can add your ETH/BTC/LTC public address, so that this namespace can be used for crypto transactions. <br>
 4. Here you can add your content `ipfs://<YOUR-CID>`. This will create a `https://<NAME>.eth.link`. You can use this link to access your content. <br>
     <br><img src="{{ site.baseurl }}/assets/images/ens-content.png" width="70%" style="display: block;margin-left: auto;margin-right: auto;"><br>
-> Note: Publishing this way is expensive since this requires to pay [gas price](https://www.investopedia.com/terms/g/gas-ethereum.asp) every time you modify your site. <br>
+> **Note**: Publishing this way is expensive since this requires to pay [gas price](https://www.investopedia.com/terms/g/gas-ethereum.asp) every time you modify your site. <br>
 5. Anyone with your .eth domain can access your content, currently there are few browsers like [Brave](https://brave.com/) or [Opera](https://www.opera.com/) can be used to access .eth domains. If you visit any .eth domain in Brave, you will be given below message to enable ENS. Might be in future other browsers will adopt ENS. 
     <br><img src="{{ site.baseurl }}/assets/images/brave-eth.png" width="70%" style="display: block;margin-left: auto;margin-right: auto;"><br>
 

@@ -1,0 +1,13 @@
+I"8
+<hr />
+<p>title: “Multiple subdomains using cloudflare”
+date: 2021-10-13T00:00:00+00:00
+author: Rajashekar Chintalapati
+layout: post
+toc: true
+permalink: /subdomains/
+categories: subdomain, cloudflare
+tags: [subdomain, cloudflare]
+—
+You can create multiple domains in cloudflare using below approach.</p>
+:ET
